@@ -119,6 +119,87 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "nexo",
+    name: "Nexo Assist",
+    description: {
+      pt: "Agent de IA para o service desk de TI: consulta a central de ajuda, abre chamados com confirmação e transfere para um analista quando precisa.",
+      en: "An AI agent for an IT service desk: it searches the help center, opens tickets with confirmation and hands off to an analyst when needed.",
+      es: "Un agent de IA para el service desk de TI: consulta el centro de ayuda, abre tickets con confirmación y transfiere a un analista cuando hace falta.",
+    },
+    image: "/projects/nexo.png",
+    url: "https://nexo-theta-kohl.vercel.app",
+    repos: [{ url: "https://github.com/RewelliOliveira/nexo" }],
+    stacks: ["nextjs", "react", "typescript", "tailwind", "openai", "vercel"],
+    overview: [
+      {
+        pt: "O funcionário descreve o problema num chat e o Nexo Assist resolve o que dá: busca na central de ajuda, mostra o status dos chamados sem pedir o número e monta um rascunho de chamado para ele conferir antes de criar.",
+        en: "Employees describe the problem in a chat and Nexo Assist handles what it can: it searches the help center, shows ticket status without asking for the number and drafts a ticket for them to review before it's created.",
+        es: "El empleado describe el problema en un chat y Nexo Assist resuelve lo que puede: busca en el centro de ayuda, muestra el estado de los tickets sin pedir el número y arma un borrador de ticket para revisarlo antes de crearlo.",
+      },
+      {
+        pt: "No console, o analista vê as conversas transferidas com resumo, motivo e cada decisão do agent, assume o atendimento e devolve a conversa ao agent ou a encerra. Foi meu desafio técnico no processo seletivo Beyond the Bytes.",
+        en: "In the console, analysts see handed-off conversations with a summary, the reason and every decision the agent made, take over the case and then hand it back to the agent or close it. It was my technical challenge for the Beyond the Bytes hiring process.",
+        es: "En la consola, el analista ve las conversaciones transferidas con resumen, motivo y cada decisión del agent, asume la atención y luego devuelve la conversación al agent o la cierra. Fue mi desafío técnico en el proceso de selección Beyond the Bytes.",
+      },
+    ],
+    highlights: [
+      {
+        title: { pt: "Regras no código", en: "Rules in code", es: "Reglas en el código" },
+        text: {
+          pt: "Confirmação antes de criar, sem duplicidade, prazo calculado pelo serviço e privacidade entre funcionários valem mesmo se o modelo errar.",
+          en: "Confirmation before creating, no duplicates, deadlines computed by the service and privacy between employees hold even when the model gets it wrong.",
+          es: "Confirmación antes de crear, sin duplicados, plazo calculado por el servicio y privacidad entre empleados se cumplen aunque el modelo se equivoque.",
+        },
+      },
+      {
+        title: { pt: "Decisões transparentes", en: "Transparent decisions", es: "Decisiones transparentes" },
+        text: {
+          pt: "Cada ação registra intenção, confiança e motivo. O funcionário vê isso no chat e o analista no console, sem precisar perguntar tudo de novo.",
+          en: "Every action records intent, confidence and reason. Employees see it in the chat and analysts in the console, without asking everything again.",
+          es: "Cada acción registra intención, confianza y motivo. El empleado lo ve en el chat y el analista en la consola, sin tener que preguntar todo de nuevo.",
+        },
+      },
+      {
+        title: { pt: "Transferência para analista", en: "Analyst handoff", es: "Transferencia a analista" },
+        text: {
+          pt: "Chamados críticos são transferidos na hora, e chamados vencidos geram a oferta de um analista. Com o analista na conversa, o agent fica calado.",
+          en: "Critical tickets are handed off right away and overdue ones trigger an offer to talk to an analyst. While an analyst is in the conversation, the agent stays quiet.",
+          es: "Los tickets críticos se transfieren al instante y los vencidos generan la oferta de un analista. Con el analista en la conversación, el agent se queda callado.",
+        },
+      },
+      {
+        title: { pt: "Resiliência", en: "Resilience", es: "Resiliencia" },
+        text: {
+          pt: "O sistema de chamados simulado cai de vez em quando. As ferramentas tentam de novo com backoff e, se continuar fora, o agent explica que nada foi perdido.",
+          en: "The simulated ticket system goes down now and then. Tools retry with backoff and, if it stays down, the agent explains that nothing was lost.",
+          es: "El sistema de tickets simulado se cae de vez en cuando. Las herramientas reintentan con backoff y, si sigue caído, el agent explica que no se perdió nada.",
+        },
+      },
+    ],
+    internals: [
+      {
+        pt: "Next.js 16 com App Router, Tailwind CSS v4 e AI SDK no streaming do chat. O agent roda no Mastra com GPT-5.4 mini, configurável para outros provedores.",
+        en: "Next.js 16 with the App Router, Tailwind CSS v4 and the AI SDK for chat streaming. The agent runs on Mastra with GPT-5.4 mini, configurable for other providers.",
+        es: "Next.js 16 con App Router, Tailwind CSS v4 y AI SDK para el streaming del chat. El agent corre en Mastra con GPT-5.4 mini, configurable para otros proveedores.",
+      },
+      {
+        pt: "libSQL com Drizzle guarda funcionários, chamados, conversas e o log de decisões, em arquivo local no desenvolvimento e Turso no deploy.",
+        en: "libSQL with Drizzle stores employees, tickets, conversations and the decision log, as a local file in development and Turso in production.",
+        es: "libSQL con Drizzle guarda empleados, tickets, conversaciones y el registro de decisiones, en un archivo local en desarrollo y Turso en el deploy.",
+      },
+      {
+        pt: "As dependências só descem: interface, agent e serviços de domínio. O agent nunca toca no banco, e os serviços não sabem que existe um agent.",
+        en: "Dependencies only point down: interface, agent and domain services. The agent never touches the database, and the services don't know an agent exists.",
+        es: "Las dependencias solo bajan: interfaz, agent y servicios de dominio. El agent nunca toca la base de datos, y los servicios no saben que existe un agent.",
+      },
+      {
+        pt: "Testes com Vitest cobrem regras, ferramentas e cenários do agent com um modelo roteirizado, inclusive com o modelo errando de propósito.",
+        en: "Vitest tests cover the rules, the tools and agent scenarios with a scripted model, including the model making mistakes on purpose.",
+        es: "Tests con Vitest cubren reglas, herramientas y escenarios del agent con un modelo guionizado, incluso con el modelo equivocándose a propósito.",
+      },
+    ],
+  },
+  {
     slug: "your-menu",
     name: "Your Menu",
     description: {
